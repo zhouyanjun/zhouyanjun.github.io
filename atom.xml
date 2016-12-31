@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhouyanjun.github.io/"/>
-  <updated>2016-11-19T08:23:15.190Z</updated>
+  <updated>2016-12-31T11:56:41.000Z</updated>
   <id>http://zhouyanjun.github.io/</id>
   
   <author>
@@ -16,33 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://zhouyanjun.github.io/2016/11/19/hello-world/"/>
-    <id>http://zhouyanjun.github.io/2016/11/19/hello-world/</id>
-    <published>2016-11-19T07:12:54.161Z</published>
-    <updated>2016-11-19T08:23:15.190Z</updated>
+    <title>2016总结</title>
+    <link href="http://zhouyanjun.github.io/2016/12/31/%E5%86%8D%E8%A7%812016/"/>
+    <id>http://zhouyanjun.github.io/2016/12/31/再见2016/</id>
+    <published>2016-12-31T11:56:41.000Z</published>
+    <updated>2016-12-31T11:56:41.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<h2 id="再见2016"><a href="#再见2016" class="headerlink" title="再见2016"></a>再见2016</h2><p>其实对于我这种懒人没有写年度总结的习惯，但是今年对我来说又有着特殊意义的一年，如果说2015对我来说只有考研这一件事，2016应该是我人生的一个转折点。</p>
+<h3 id="January"><a href="#January" class="headerlink" title="January"></a>January</h3><p>本来觉得刚考完研就被学校拖出来实习是一件很苦逼的事情，但是感谢你们，狼人杀小分队，让我们在动漫基地的过的有声有色。</p>
+<h3 id="February"><a href="#February" class="headerlink" title="February"></a>February</h3><p>新年的喜悦，和等待成绩的煎熬，总归没有辜负自己2015年一年的努力，顺利的通过了初试。</p>
+<h3 id="March"><a href="#March" class="headerlink" title="March"></a>March</h3><p>复试+足协杯，喜忧参半，复试成功，但是我却输掉了半决赛，卫冕失败，想最后用一个冠军来告别我本科的足球生涯，但是生活就是这样，不会都如你意。</p>
+<h3 id="April"><a href="#April" class="headerlink" title="April"></a>April</h3><p>我真的想不起来我四月干了什么。论文，毕业设计？</p>
+<h3 id="May"><a href="#May" class="headerlink" title="May"></a>May</h3><p>毕业季，喝酒，喝酒，还是喝酒。告别自己的大学生涯，感谢大学四年遇到你们，院队，校队，骑行社，6栋125，12网工。</p>
+<h3 id="June"><a href="#June" class="headerlink" title="June"></a>June</h3><p>欧洲杯，球迷的狂欢，加上收到了录取通知书，整个这个月都是high到不行。</p>
+<h3 id="July"><a href="#July" class="headerlink" title="July"></a>July</h3><p>拿到了自己的毕业证学位证，大家真的是要各奔前程。恭喜葡萄牙夺冠，小组第三出线，常规时间只赢过一场球，但这又何妨，天道酬勤。</p>
+<h3 id="August"><a href="#August" class="headerlink" title="August"></a>August</h3><p>杭州，西塘，说走就走，亦可赛艇的夜晚，不可描述的老司机。</p>
+<h3 id="September"><a href="#September" class="headerlink" title="September"></a>September</h3><p>研究生入学，第一次来苏州，迎接新的挑战。</p>
+<h3 id="October"><a href="#October" class="headerlink" title="October"></a>October</h3><p>渐渐习惯了研究生的生活，认识了更多的朋友，长了更多的见识。壮士仍需努力啊。</p>
+<h3 id="November"><a href="#November" class="headerlink" title="November"></a>November</h3><p>灰色，祝你幸福。</p>
+<h3 id="December"><a href="#December" class="headerlink" title="December"></a>December</h3><p>坎坷的十二月，各种事情蜂拥而至，索性也都熬过去了，确定了自己研究生下一阶段的目标。</p>
+<p>###2017<br>希望自己可以找到一个好的实习，身体健康，一切都顺利。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;h2 id=&quot;再见2016&quot;&gt;&lt;a href=&quot;#再见2016&quot; class=&quot;headerlink&quot; title=&quot;再见2016&quot;&gt;&lt;/a&gt;再见2016&lt;/h2&gt;&lt;p&gt;其实对于我这种懒人没有写年度总结的习惯，但是今年对我来说又有着特殊意义的一年，如果说2015对我来说只有考研
     
     </summary>
     
-      <category term="testCategories" scheme="http://zhouyanjun.github.io/categories/testCategories/"/>
+      <category term="life" scheme="http://zhouyanjun.github.io/categories/life/"/>
     
     
-      <category term="testTag" scheme="http://zhouyanjun.github.io/tags/testTag/"/>
+      <category term="life" scheme="http://zhouyanjun.github.io/tags/life/"/>
     
   </entry>
   
