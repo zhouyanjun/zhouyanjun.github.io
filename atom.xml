@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhouyanjun.github.io/"/>
-  <updated>2016-12-31T12:17:26.000Z</updated>
+  <updated>2017-07-31T05:45:55.000Z</updated>
   <id>http://zhouyanjun.github.io/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于UnsupportedOperationException异常</title>
+    <link href="http://zhouyanjun.github.io/2017/07/31/%E5%85%B3%E4%BA%8EUnsupportedOperationException%E5%BC%82%E5%B8%B8/"/>
+    <id>http://zhouyanjun.github.io/2017/07/31/关于UnsupportedOperationException异常/</id>
+    <published>2017-07-31T05:42:20.000Z</published>
+    <updated>2017-07-31T05:45:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在遍历Collection时，若想对其进行删除操作，必须使用Iterator中的remove()方法，若使用Collection自带的remove()方法，则会产生<strong>currentModifierException</strong>,在下面这段代码中，会出现<strong>UnsupportedOperationException</strong>异常，Java中提供了这个方法，为什么还会抛出异常呢？<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Integer[] array = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</div><div class="line">        List&lt;Integer&gt; list1 = Arrays.asList(array);</div><div class="line">        Iterator&lt;Integer&gt; iterator1 = list1.iterator();</div><div class="line">        <span class="keyword">while</span> (iterator1.hasNext())&#123;</div><div class="line">            <span class="keyword">int</span> x = iterator1.next();</div><div class="line">            <span class="keyword">if</span>(x==<span class="number">5</span>)&#123;</div><div class="line">                iterator1.remove();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(list1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Exception in thread “main” java.lang.UnsupportedOperationException<br>    at java.util.AbstractList.add(AbstractList.java:148)<br>    at java.util.AbstractList.add(AbstractList.java:108)<br>    at java.util.AbstractCollection.addAll(AbstractCollection.java:344)<br>    at Test.main(Test.java:10)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>    at java.lang.reflect.Method.invoke(Method.java:498)<br>    at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)</p>
+</blockquote>
+<p>我们可以观察到其主要问题出现在代码的第9行也就是删除操作。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">   <span class="meta">@SafeVarargs</span></div><div class="line">   <span class="meta">@SuppressWarnings</span>(<span class="string">"varargs"</span>)</div><div class="line">   <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">asList</span><span class="params">(T... a)</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;(a);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * <span class="doctag">@serial</span> include</div><div class="line">    */</div><div class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></div><div class="line">       <span class="keyword">implements</span> <span class="title">RandomAccess</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></div><div class="line">   &#123;</div><div class="line">       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">2764017481108945198L</span>;</div><div class="line">       <span class="keyword">private</span> <span class="keyword">final</span> E[] a;</div><div class="line"></div><div class="line">       ArrayList(E[] array) &#123;</div><div class="line">           a = Objects.requireNonNull(array);</div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>Arrays.asList(T...a)</code>返回的是一个内部类的<code>ArrayList&lt;&gt;(a)</code>;而不是<strong>List</strong>的子类<strong>ArrayList</strong>；而且其保存的是一个<strong>final</strong>对象，所以不能对其进行删除操作。当我们采用另一种将数组变成<strong>List</strong>对象时才可以使用<strong>Iterator</strong>的<strong>remove()</strong>方法去删除元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Integer[] array = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</div><div class="line">        List&lt;Integer&gt; list2 = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        list2.addAll(Arrays.asList(array));</div><div class="line">        Iterator&lt;Integer&gt; iterator2 = list2.iterator();</div><div class="line">        <span class="keyword">while</span> (iterator2.hasNext())&#123;</div><div class="line">            <span class="keyword">int</span> x = iterator2.next();</div><div class="line">            <span class="keyword">if</span>(x==<span class="number">5</span>)&#123;</div><div class="line">                iterator2.remove();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(list2);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在遍历Collection时，若想对其进行删除操作，必须使用Iterator中的remove()方法，若使用Collection自带的remove()方法，则会产生&lt;strong&gt;currentModifierException&lt;/strong&gt;,在下面这段代码中，会出现&lt;strong&gt;UnsupportedOperationException&lt;/strong&gt;异常，Java中提供了这个方法，为什么还会抛出异常呢？&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://zhouyanjun.github.io/categories/Java/"/>
+    
+    
+      <category term="UnsupportedOperationException" scheme="http://zhouyanjun.github.io/tags/UnsupportedOperationException/"/>
+    
+      <category term="Collection" scheme="http://zhouyanjun.github.io/tags/Collection/"/>
+    
+      <category term="Arrays" scheme="http://zhouyanjun.github.io/tags/Arrays/"/>
+    
+  </entry>
   
   <entry>
     <title>再见2016</title>
